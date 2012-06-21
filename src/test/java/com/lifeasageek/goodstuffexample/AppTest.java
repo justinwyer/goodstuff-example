@@ -1,38 +1,34 @@
 package com.lifeasageek.goodstuffexample;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import javax.inject.Inject;
+import org.jboss.arquillian.api.Deployment;
+import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.asset.EmptyAsset;
+import org.jboss.shrinkwrap.api.spec.JavaArchive;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 
 /**
- * Unit test for simple App.
+ *
+ * @author Justin Wyer <jwyer@lifeasageek.com>
  */
-public class AppTest 
-    extends TestCase
+@RunWith(Arquillian.class)
+public class AppTest
 {
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+   @Deployment
+   public static JavaArchive createDeployment()
+   {
+      return ShrinkWrap.create(JavaArchive.class, "test.jar").addClasses(
+            GoodStuff.class, Good.class).
+            addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+   }
+   @Inject
+   private GoodStuff goodStuff;
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
-    }
+   @Test
+   public void testDoSomethingGood() throws Exception
+   {
+      goodStuff.doSomethingGood();
+   }
 }
