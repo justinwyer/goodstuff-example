@@ -18,6 +18,5 @@ public class GoodStuff
    public void doSomethingGood()
    {
       System.out.println("Something good just happened!");
-   }
-         
+   }     
 }

@@ -11,7 +11,7 @@ import javax.interceptor.InterceptorBinding;
  * @author Justin Wyer <jwyer@lifeasageek.com>
  */
 @InterceptorBinding
-@Target({ElementType.METHOD, ElementType.TYPE})
+@Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Good
 {
