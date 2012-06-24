@@ -2,7 +2,10 @@ package com.lifeasageek.goodstuffexample;
 
 import java.io.IOException;
 import javax.inject.Inject;
+import javax.naming.NamingException;
+import javax.naming.Reference;
 import javax.servlet.*;
+import org.eclipse.jetty.plus.jndi.Resource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
