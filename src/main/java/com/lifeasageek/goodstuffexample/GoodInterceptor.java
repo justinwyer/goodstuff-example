@@ -13,9 +13,9 @@ import javax.interceptor.InvocationContext;
 public class GoodInterceptor
 {
    @AroundInvoke
-   public void doOnlyGood(InvocationContext ctx) throws Exception
+   public Object doOnlyGood(InvocationContext ctx) throws Exception
    {
       System.out.println("Do only good is better than do no evil right?");
-      ctx.proceed();
+      return ctx.proceed();
    }
 }
