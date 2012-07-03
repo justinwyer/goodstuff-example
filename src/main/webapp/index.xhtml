@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+   <h:head>
+   </h:head>
+
+   <h:body>
+      Do a good deed!
+      <h:form>
+         <h:panelGrid columns="2">
+            <h:outputText for="altruist" value="The altruist:"/>
+            <h:inputText name="altruist" value="${deedController.altruist}"/>
+            <h:outputText for="recipient" value="The recipient:"/>
+            <h:inputText name="recipient" value="${deedController.recipient}"/>
+         </h:panelGrid>
+         <h:commandButton action="${deedController.doGoodDeed}" value="Do it!">
+            <f:ajax execute="@form" render=":response"/>
+         </h:commandButton>
+      </h:form>
+      <h:outputText id="response" value="${deedController.response}"/>
+   </h:body>
+</html>
