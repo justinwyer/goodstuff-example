@@ -1,4 +1,4 @@
-package com.lifeasageek.goodstuffexample;
+package com.lifeasageek.goodstuffexample.cdi;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,12 +7,12 @@ import java.lang.annotation.Target;
 import javax.interceptor.InterceptorBinding;
 
 /**
- * 
- * @author Justin Wyer <jwyer@lifeasageek.com>
+ *
+ * @author Justin Wyer <justin@lifeasageek.com>
  */
 @InterceptorBinding
-@Target({ElementType.TYPE})
+@Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Good
+public @interface Transactional
 {
 }

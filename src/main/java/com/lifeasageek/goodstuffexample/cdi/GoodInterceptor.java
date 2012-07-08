@@ -1,4 +1,4 @@
-package com.lifeasageek.goodstuffexample;
+package com.lifeasageek.goodstuffexample.cdi;
 
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
@@ -6,7 +6,7 @@ import javax.interceptor.InvocationContext;
 
 /**
  *
- * @author Justin Wyer <jwyer@lifeasageek.com>
+ * @author Justin Wyer <justin@lifeasageek.com>
  */
 @Good
 @Interceptor

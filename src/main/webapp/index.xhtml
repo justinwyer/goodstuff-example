@@ -19,9 +19,23 @@
             <h:inputText name="recipient" value="${deedController.recipient}"/>
          </h:panelGrid>
          <h:commandButton action="${deedController.doGoodDeed}" value="Do it!">
-            <f:ajax execute="@form" render=":response"/>
+            <f:ajax execute="@form" render=":response :deeds"/>
          </h:commandButton>
       </h:form>
       <h:outputText id="response" value="${deedController.response}"/>
+      <h:dataTable id="deeds" value="#{deedController.deeds}" var="d">
+         <h:column>
+               <f:facet name="header">ID</f:facet>
+               #{d.id}
+         </h:column>
+         <h:column>
+               <f:facet name="header">Altruist</f:facet>
+               #{d.altruist}
+         </h:column>
+         <h:column>
+               <f:facet name="header">Recipient</f:facet>
+               #{d.recipient}
+         </h:column>
+      </h:dataTable>
    </h:body>
 </html>

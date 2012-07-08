@@ -1,5 +1,8 @@
 package com.lifeasageek.goodstuffexample;
 
+import com.lifeasageek.goodstuffexample.cdi.EntityManagerProducer;
+import com.lifeasageek.goodstuffexample.cdi.EntityManagerWrapper;
+import com.lifeasageek.goodstuffexample.cdi.Good;
 import javax.inject.Inject;
 import org.jboss.arquillian.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
@@ -20,7 +23,8 @@ public class AppTest
    public static JavaArchive createDeployment()
    {
       return ShrinkWrap.create(JavaArchive.class, "test.jar").addClasses(
-            GoodStuff.class, Good.class).
+            GoodStuff.class, Good.class, EntityManagerProducer.class,
+            EntityManagerWrapper.class).
             addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
    }
    @Inject
